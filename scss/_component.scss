@@ -1,0 +1,159 @@
+@use "vars" as *;
+
+
+.c-fc{ //font-color
+	&--white{
+		color: white !important;
+	}
+	&--black{
+		color: black !important;
+	}
+	&--green{
+		color: $green !important;
+	}
+}
+
+
+
+
+
+
+.c-al{
+	&--c{
+		text-align: center !important;
+	}
+	
+	&--r{
+		text-align: right !important
+	}
+	
+	&--l{
+		text-align: left !important;
+	}
+}
+
+
+
+// Image position control
+.c-pull{
+	&--left{
+		margin-left: calc(((100vw - 100%) / 2) * -1)
+	}
+	&--right{
+		margin-right: calc(((100vw - 100%) / 2) * -1)
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/* ====================================================
+Component
+==================================================== */
+// Common Text style
+.c-txt{
+	&__basic{
+		@include fts(18,24);
+		@include mq{
+			@include fts(14,20);
+		}
+	}
+}
+
+
+
+
+//ttl
+.c-ttl{
+	&__01{
+		display: block;
+		@include font-size(32);
+		font-weight: bold;
+		line-height: 1.4;
+		margin-bottom: 30px;
+		@include mq(){
+			@include font-size(18);
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+	}
+
+	&__03{
+		text-align: center;
+		@include fts(32,38);
+		font-weight: 700;
+		margin-bottom: 72px;
+		@include mq{
+			@include font-size(18);
+			margin-bottom: 36px;
+		}
+		span{
+			@include fts(42,48);
+			display: block;
+			color: $green;
+			margin-top: 11px;
+			@include mq{
+				@include font-size(24);
+			}
+		}
+	}
+
+}
+
+//btn
+.c-btn{
+	&__01{
+		width: 100%;
+		max-width: 303px;
+		height: 54px;
+		@include flex(center,center,wrap);
+		background: $orange;
+		line-height: 1;
+		@include font-size(24);
+		font-weight: bold;
+		color: $dark;
+		border-radius: 5px;
+		border: none;
+		cursor: pointer;
+		@include mq(){
+			@include font-size(18);
+			max-width: 186px;
+			height: 35px;
+		}
+	}
+}
+.view-more{
+	display: inline-block;
+	border: 1px solid #C6C6C6;
+	border-radius: 30px;
+	@include font-size(18);
+	color: #828181;
+	line-height: 1;
+	font-weight: 500;
+	padding: 8px 23px;
+
+	&--fill{
+		background: #D9D9D9;
+		border: none;
+		@include font-size(18.67);
+		color: #000;
+		width: 200px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: auto;
+		margin-right: 0;
+		@include mq{
+			@include font-size(14);
+			margin-left: 0;
+			font-weight: 400;
+		}
+	}
+}
