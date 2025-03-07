@@ -21,13 +21,12 @@
 		&-item{
 			padding: 10px;
 			cursor: pointer;
-			img{
+			position: relative;
 
-			}
 			&.slick-current{
 				.top-mv__list-img{
 					transform: scale(1.2);
-					&:before{
+					&:after{
 						opacity: 1;
 						visibility: visible;
 					}
@@ -41,6 +40,11 @@
 			@include smooth-transition;
 			&:before{
 				content: "";
+				display: block;
+				padding: 100% 0 0;
+			}
+			&:after{
+				content: "";
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -52,6 +56,218 @@
 				opacity: 0;
 				visibility: hidden;
 			}
+		}
+	}
+}
+
+.sec-content{
+	padding: 80px 0;
+}
+.menu-game{
+	display: grid;
+	grid-template-columns: 33.333fr 33.333fr 33.333fr;
+	gap: 15px 15px;
+	margin-bottom: 70px;
+	&__item{
+		a{
+			display: block;
+			border: 1px solid rgba(#585C5F,0.16);
+			border-radius: 20px;
+			padding: 15px;
+			&:hover{
+				opacity: 1;
+				.menu-game{
+					&__heading{
+						&-ttl{
+							color: #303030;
+						}
+					}
+					&__img{
+						span,&:after{
+							opacity: 1;
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+	}
+	&__heading{
+		&-code{
+			display: inline-block;
+			@include font-size(18);
+			font-weight: 500;
+			line-height: 1;
+			color: #303030;
+			text-transform: uppercase;
+			background: #C6C6C6;
+			border-radius: 4px;
+			padding: 7px 11px;
+			margin-bottom: 15px;
+		}
+		&-ttl{
+			display: block;
+			color: #797978;
+			@include fts(32,38);
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+	}
+	&__img{
+		position: relative;
+		border-radius: 20px;
+		overflow: hidden;
+		&:before{
+			content: "";
+			display: block;
+			padding: 82% 0 0;
+		}
+		&:after{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(black,0.5);
+			z-index: 1;
+		}
+		span{
+			position: absolute;
+			bottom: 20px;
+			left: 10px;
+			right: 10px;
+			display: block;
+			max-width: 132px;
+			padding: 8px;
+			margin: 0 auto;
+			text-align: center;
+			@include font-size(15);
+			font-weight: 500;
+			background: #F6C222;
+			border-radius: 30px;
+			color: #303030;
+			z-index: 3;
+		}
+		span,&:after{
+			opacity: 0;
+			visibility: hidden;
+			@include smooth-transition;
+		}
+	}
+}
+
+.news-block{
+	@include flex(0,0,wrap);
+	&__first{
+		width: 45%;
+		&-box{
+			display: block;
+			color: #797978;
+			background: white;
+			border-radius: 20px;
+			box-shadow: 0 16px 40px rgba(#585C5F,0.16);
+			padding: 5px 5px 20px;
+			border: 1px solid rgba(#585C5F,0.16);
+		}
+		&-img{
+			border-radius: 20px;
+			margin-bottom: 20px;
+			&:before{
+				content: "";
+				display: block;
+				padding: 55.4% 0 0;
+			}
+		}
+		&-ct{
+			padding: 0 20px;
+			&-note{
+				display: inline-block;
+				position: relative;
+				background: #F6C222;
+				border-radius: 4px;
+				@include font-size(14);
+				line-height: 1;
+				padding: 6px 10px 6px 28px;
+				margin-bottom: 15px;
+				&:before{
+					content: "";
+					width: 16px;
+					height: 16px;
+					background: url("../img/common/note.svg")no-repeat;
+					background-size: 100%;
+					position: absolute;
+					top: 5px;
+					left: 5px;
+				}
+			}
+			&-ttl{
+				display: block;
+				@include fts(24,30);
+				font-weight: bold;
+			}
+		}
+	}
+	&__ct{
+		width: 55%;
+		padding: 0 0 0 30px;
+	}
+}
+
+.news-list{
+	&__item{
+		margin-bottom: 19px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+		a{
+			@include flex(0,center,wrap);
+			background: white;
+			box-shadow: 0 16px 40px rgba(#585C5F,0.16);
+			padding: 5px;
+			border: 1px solid rgba(#585C5F,0.16);
+			border-radius: 20px;
+		}
+	}
+	&__img{
+		width: 136px;
+		position: relative;
+		border-radius: 20px;
+		overflow: hidden;
+		&:before{
+			content: "";
+			display: block;
+			padding: 100% 0 0;
+		}
+	}
+	&__ct{
+		width: calc(100% - 136px);
+		padding: 0 0 0 20px;
+		&-note{
+			display: inline-block;
+			border-radius: 4px;
+			color: #303030;
+			@include font-size(14);
+			background: $green;
+			position: relative;
+			padding: 3px 13px 3px 25px;
+			margin-bottom: 7px;
+			&:before{
+				content: "";
+				width: 16px;
+				height: 16px;
+				background: url(../img/common/note-02.svg) no-repeat;
+				background-size: 100%;
+				position: absolute;
+				left: 6px;
+				top: 4px;
+			}
+		}
+		&-ttl{
+			display: block;
+			@include fts(24,30);
+			font-weight: bold;
+			color: #797978;
 		}
 	}
 }
